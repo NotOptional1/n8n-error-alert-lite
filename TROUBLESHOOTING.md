@@ -16,4 +16,4 @@ Built from seven tests run on a real n8n 2.35.7 (self-hosted, regular mode): eac
 ## Not tested
 n8n Cloud, queue mode, other n8n versions, errors inside sub-workflows (Execute Workflow node), AI agent sub-node errors, timeouts and killed executions, and notification channels other than the Send Email node.
 
-*Created with AI assistance (Claude) and human-reviewed. n8n is a trademark of n8n GmbH; this repo is not affiliated with or endorsed by n8n.*
+*Created with AI assistance (Claude) and tested as described here. n8n is a trademark of n8n GmbH; this repo is not affiliated with or endorsed by n8n.*

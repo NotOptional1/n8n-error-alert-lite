@@ -25,4 +25,4 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md): a checklist built from seven teste
 This is one of 5 workflows in the **n8n Small-Business Ops Pack** (invoice reminders, lead intake, weekly digest, consent-based review requests): https://gilishe.gumroad.com/l/n8n-ops-pack
 
 ## Notices
-MIT licensed (see LICENSE). n8n is a trademark of n8n GmbH; this workflow is not affiliated with or endorsed by n8n. It runs on n8n under n8n's own licence, which you accept when you use n8n. Created with AI assistance (Claude) and human-reviewed.
+MIT licensed (see LICENSE). n8n is a trademark of n8n GmbH; this workflow is not affiliated with or endorsed by n8n. It runs on n8n under n8n's own licence, which you accept when you use n8n. Created with AI assistance (Claude) and tested as described here.
