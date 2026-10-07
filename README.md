@@ -15,6 +15,9 @@ When any workflow you attach it to fails, you get an email with the workflow nam
 
 The workflow ships inactive. Tested in a real local n8n 2.35 (a deliberately failing workflow produced the alert email via a test mail server).
 
+## Alert didn't fire?
+See [TROUBLESHOOTING.md](TROUBLESHOOTING.md): a checklist built from seven tested cases.
+
 ## Test it yourself
 `testing/` has a tiny local SMTP sink (`smtp_sink.py`) and a short guide (`TESTING.md`) for checking email workflows without sending real mail, including how to assert how many emails a run produced.
 
