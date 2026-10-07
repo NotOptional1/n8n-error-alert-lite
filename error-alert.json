@@ -1,0 +1,101 @@
+{
+  "id": "opspack5",
+  "name": "Error alert to email",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "7be59848-d80d-5e38-9f0f-be05f24d8b07",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const e = $input.first().json;\nconst wf = e.workflow?.name ?? 'unknown workflow';\nconst msg = e.execution?.error?.message ?? 'unknown error';\nreturn [{ json: { subject: `n8n failure: ${wf}`, text: `Workflow: ${wf}\\nNode: ${e.execution?.lastNodeExecuted ?? '?'}\\nError: ${msg}\\nExecution: ${e.execution?.url ?? ''}` } }];"
+      },
+      "id": "d398bf3b-e845-58e8-9b17-7eebc5cd24e6",
+      "name": "Format alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "you@example.com",
+        "toEmail": "you@example.com",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "text",
+        "text": "={{ $json.text }}"
+      },
+      "id": "8f7fdab7-5e5f-5968-9d7a-917638e45956",
+      "name": "Email alert",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        440,
+        0
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "",
+          "name": "SMTP account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "Setup: in each important workflow, Settings > Error workflow > select this one.",
+        "height": 160,
+        "width": 320
+      },
+      "id": "4e8bbfe3-106a-5162-9a4b-bd8902e90dc5",
+      "name": "Setup note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -220
+      ]
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Format alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format alert": {
+      "main": [
+        [
+          {
+            "node": "Email alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "note": "Global failure notifier"
+  },
+  "pinData": {}
+}
