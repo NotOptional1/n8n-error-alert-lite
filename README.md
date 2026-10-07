@@ -15,6 +15,9 @@ When any workflow you attach it to fails, you get an email with the workflow nam
 
 The workflow ships inactive. Tested in a real local n8n 2.35 (a deliberately failing workflow produced the alert email via a test mail server).
 
+## Test it yourself
+`testing/` has a tiny local SMTP sink (`smtp_sink.py`) and a short guide (`TESTING.md`) for checking email workflows without sending real mail, including how to assert how many emails a run produced.
+
 ## Want more?
 This is one of 5 workflows in the **n8n Small-Business Ops Pack** (invoice reminders, lead intake, weekly digest, consent-based review requests): https://gilishe.gumroad.com/l/n8n-ops-pack
 
