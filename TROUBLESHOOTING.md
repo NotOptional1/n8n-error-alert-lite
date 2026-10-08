@@ -7,7 +7,7 @@ Built from seven tests run on a real n8n 2.35.7 (self-hosted, regular mode): eac
 3. **Is the error workflow published/active?** An unpublished error workflow is silently skipped (tested). On a self-hosted n8n the only trace is a server log line: `Calling Error Workflow for "<id>". Workflow "<id>" is not active and cannot be executed`. Search your logs for `is not active and cannot be executed`.
 4. **Does the failing node have Continue On Fail (On Error: continue) set?** Then the execution doesn't fail, so no error workflow runs (tested). Change the setting or route the node's error output to your own alert.
 5. **Is the alert workflow's email step set up?** Choose your SMTP credential on the Email alert node and set the from/to addresses. (If the error workflow runs but no mail arrives, check its own execution in the Executions list.)
-6. **Did the workflow succeed but do nothing?** An error workflow only sees errors. A run that processes zero rows is a success. Add a check (IF on the row count or a field) that routes to a *Stop and Error* node when it fails; that turns it into a real error. This one is advice from the n8n forum, not something I tested.
+6. **Did the workflow succeed but do nothing?** An error workflow only sees errors. A run that processes zero rows is a success. Add a check (IF on the row count or a field) that routes to a *Stop and Error* node when it fails; that turns it into a real error. This one is advice from the n8n forum, not something that was tested here.
 
 ## Good to know (tested)
 - An **Error Trigger inside the same workflow** also worked in 2.35.7, with or without selecting the workflow as its own error workflow (one email, no duplicate). A shared error workflow like this one is still easier to maintain.
