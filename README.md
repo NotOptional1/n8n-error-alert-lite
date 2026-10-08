@@ -21,6 +21,9 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md): a checklist built from seven teste
 ## Test it yourself
 `testing/` has a tiny local SMTP sink (`smtp_sink.py`) and a short guide (`TESTING.md`) for checking email workflows without sending real mail, including how to assert how many emails a run produced.
 
+## See also
+[n8n Heartbeat Watchdog](https://github.com/NotOptional1/n8n-heartbeat-watchdog): catches the opposite failure, a scheduled job that silently didn't run, which an error workflow can't see.
+
 ## Want more?
 This is one of 5 workflows in the **n8n Small-Business Ops Pack** (invoice reminders, lead intake, weekly digest, consent-based review requests): https://gilishe.gumroad.com/l/n8n-ops-pack
 
